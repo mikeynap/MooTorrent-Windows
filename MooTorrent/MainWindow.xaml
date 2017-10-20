@@ -1,0 +1,35 @@
+﻿<Window x:Class="MooTorrent.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MooTorrent"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <ContextMenu x:Key="itemMenu">
+            <MenuItem Header="_Edit" Click="EditMenu_Click"/>
+            <TextBlock></TextBlock>
+            <MenuItem Header="_Delete" Click="Delete_Click"/>
+        </ContextMenu>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <ListView Name="shows" VerticalAlignment="Stretch"  Grid.Row="0" Grid.ColumnSpan="3"
+                  MouseDoubleClick="shows_MouseDoubleClick" ContextMenu="{StaticResource itemMenu}" ItemsSource="{Binding Path=Items}">
+        </ListView>
+        <Label Content="Show Name" Grid.Row="1" HorizontalAlignment="Left" Grid.Column="0" Name="label1" VerticalAlignment="Center"  />
+        <TextBox Name="txtItemDesc" Grid.Row="1" Grid.Column="1" />
+        <Button Content="Add Item" Grid.Row="1" HorizontalAlignment="right" Grid.Column="2" Name="btnAdd" Click="btnAdd_Click" />
+    </Grid>
+
+</Window>
